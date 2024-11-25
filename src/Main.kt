@@ -11,17 +11,23 @@ fun anagrama(): Boolean {
     val palabra1: String = readln().lowercase()
     println("Introduzca la segunda palabra:")
     val palabra2: String = readln().lowercase()
-    val letras1: CharArray = palabra1.toCharArray()
-    val letras2: CharArray = palabra2.toCharArray()
-    if (letras1.size == letras2.size) {
-        for (i in letras1.indices) {
-            if (!(letras2.contains(letras1[i]))) {
+
+    // Se comprueba que ambas palabras tengan la misma cantidad de letras.
+    if (palabra1.length == palabra2.length) {
+        for (i in palabra1.indices) {
+
+            // Se comprueba que todas las letras de la segunda palabra se encuentran en la primera.
+            if (!(palabra2.contains(palabra1[i]))) {
                 return false
             }
-            if (!(letras1.contains(letras2[i]))) {
+
+            // Se comprueba que todas las letras de la primera palabra se encuentran en la segunda.
+            if (!(palabra1.contains(palabra2[i]))) {
                 return false
             }
         }
+
+        // Si se han pasado todas las comprobaciones, se llega aquí y las palabras son anagramas.
         return true
     } else {
         return false
