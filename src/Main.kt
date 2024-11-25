@@ -22,9 +22,8 @@ fun anagrama(): Boolean {
                 return false
             }
         }
+        return true
     } else {
         return false
     }
-
-    return true
 }
