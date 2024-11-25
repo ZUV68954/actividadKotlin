@@ -1,23 +1,30 @@
 fun main() {
-    println("Introduce dos palabras para comprobar si son un anagrama:")
-    val palabra1 = invertirPalabra(introducirPalabra())
-    val palabra2 = introducirPalabra()
-    if (compararPalabras(palabra1, palabra2)) {
-        println("Las palabras son un anagrama.")
+    if (anagrama()) {
+        println("Las palabras son anagramas.")
     } else {
-        println("Las palabras no son un anagrama.")
+        println("Las palabras no son anagramas.")
     }
 }
 
-fun compararPalabras(palabra1: String, palabra2: String): Boolean {
-    return palabra1 == palabra2
-}
+fun anagrama(): Boolean {
+    println("Introduzca la primera palabra:")
+    val palabra1: String = readln().lowercase()
+    println("Introduzca la segunda palabra:")
+    val palabra2: String = readln().lowercase()
+    val letras1: CharArray = palabra1.toCharArray()
+    val letras2: CharArray = palabra2.toCharArray()
+    if (letras1.size == letras2.size) {
+        for (i in letras1.indices) {
+            if (!(letras2.contains(letras1[i]))) {
+                return false
+            }
+            if (!(letras1.contains(letras2[i]))) {
+                return false
+            }
+        }
+    } else {
+        return false
+    }
 
-fun introducirPalabra(): String {
-    println("Introduce una palabra:")
-    return readln().lowercase()
-}
-
-fun invertirPalabra(palabra: String): String {
-    return palabra.reversed()
+    return true
 }
