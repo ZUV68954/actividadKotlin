@@ -32,14 +32,15 @@ fun carrera(acciones: Array<String>): Boolean {
                 obstáculos[i] = 'x'
                 correcto = false
             } else if (acciones[i] == "correr" && obstáculos[i] == '_') {
-            // Correcto
+                // Correcto
             } else if (acciones[i] == "saltar" && obstáculos[i] == '|') {
-            // Correcto
+                // Correcto
             } else {
                 obstáculos[i] = '?'
             }
         } catch (e: ArrayIndexOutOfBoundsException) {
             // obstáculos.add('?')
+            correcto = false
         }
     }
     pista = obstáculos.joinToString()
