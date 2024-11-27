@@ -3,9 +3,9 @@ val tresEnRaya: ArrayList<ArrayList<String>> = arrayListOf(
 )
 
 fun main() {
-    val línea1: Array<String> = arrayOf("X", "O", "X")
-    val línea2: Array<String> = arrayOf("O", "X", "O")
-    val línea3: Array<String> = arrayOf("O", "O", "X")
+    val línea1: Array<String> = arrayOf("X", "X", "X")
+    val línea2: Array<String> = arrayOf("X", "X", "O")
+    val línea3: Array<String> = arrayOf("O", "X", "X")
     crearPartida(línea1, línea2, línea3)
     println(comprobarGanador())
 }
@@ -44,13 +44,12 @@ fun comprobarGanador(): String {
         // Descargo de responsablidad: Este código fue creado en base a una fórmula preestablecida.
         if (totalO >= totalX + 2 || totalX >= totalO + 2) {
             return "NULL"
-        }
-
-        if (x == 3) {
+        } else if (x == 3) {
             return "X"
         } else if (o == 3) {
             return "O"
         }
+
     }
 
 
