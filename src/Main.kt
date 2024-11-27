@@ -21,7 +21,7 @@ fun main() {
 }
 
 fun carrera(acciones: Array<String>): Boolean {
-    val obstáculos = pista.toCharArray()
+    var obstáculos = pista.toCharArray()
     var correcto = true
     for (i in acciones.indices) {
         try {
@@ -39,11 +39,17 @@ fun carrera(acciones: Array<String>): Boolean {
                 obstáculos[i] = '?'
             }
         } catch (e: ArrayIndexOutOfBoundsException) {
-            // obstáculos.add('?')
+            val copia = obstáculos.copyOf(obstáculos.size + 1)
+            copia[copia.size - 1] = '?'
+            obstáculos = copia
             correcto = false
         }
     }
-    pista = obstáculos.joinToString()
+
+    // Pasar el char array al string pista.
+    obstáculos.forEach { caracter ->
+        pista = pista.plus(caracter)
+    }
     return correcto
 }
 
