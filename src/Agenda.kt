@@ -13,15 +13,6 @@ class Agenda {
         capacidad = cantidad
     }
 
-    fun getContacto(nombre: String): Contacto? {
-        contactos.forEach { contacto ->
-            if (contacto.nombre == nombre) {
-                return contacto
-            }
-        }
-        return null
-    }
-
     fun añadirContacto(contacto: Contacto): Boolean {
         if (contactos.contains(contacto)) {
             println("El contacto ya existe.")
@@ -61,7 +52,7 @@ class Agenda {
 
     fun listarContactos() {
         if (contador == 0) {
-            println("No hay contactos en la agenda.\n")
+            println("No hay contactos en la agenda.")
         }
         contactos.forEach { contacto ->
             println("Nombre: ${contacto.nombre}, número: ${contacto.teléfono}.")
